@@ -1,5 +1,6 @@
 # Supermarket-inventory-management-system
-#include "stdafx.h"
+
+、#include "stdafx.h"
 #include "_recordset.h"
 #include "properties.h"
 #include "fields.h"
