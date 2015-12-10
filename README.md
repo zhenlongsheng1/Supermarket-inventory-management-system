@@ -139,6 +139,7 @@ CFields C_Recordset::GetFields()
 
 long C_Recordset::GetLockType()
 {
+
 	long result;
 	InvokeHelper(0x3f0, DISPATCH_PROPERTYGET, VT_I4, (void*)&result, NULL);
 	return result;
@@ -146,6 +147,7 @@ long C_Recordset::GetLockType()
 
 void C_Recordset::SetLockType(long nNewValue)
 {
+
 	static BYTE parms[] =
 		VTS_I4;
 	InvokeHelper(0x3f0, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, parms,
@@ -154,6 +156,7 @@ void C_Recordset::SetLockType(long nNewValue)
 
 long C_Recordset::GetMaxRecords()
 {
+	
 	long result;
 	InvokeHelper(0x3f1, DISPATCH_PROPERTYGET, VT_I4, (void*)&result, NULL);
 	return result;
@@ -161,6 +164,7 @@ long C_Recordset::GetMaxRecords()
 
 void C_Recordset::SetMaxRecords(long nNewValue)
 {
+
 	static BYTE parms[] =
 		VTS_I4;
 	InvokeHelper(0x3f1, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, parms,
@@ -169,6 +173,7 @@ void C_Recordset::SetMaxRecords(long nNewValue)
 
 long C_Recordset::GetRecordCount()
 {
+	
 	long result;
 	InvokeHelper(0x3f2, DISPATCH_PROPERTYGET, VT_I4, (void*)&result, NULL);
 	return result;
@@ -176,6 +181,7 @@ long C_Recordset::GetRecordCount()
 
 void C_Recordset::SetRefSource(LPDISPATCH newValue)
 {
+
 	static BYTE parms[] =
 		VTS_DISPATCH;
 	InvokeHelper(0x3f3, DISPATCH_PROPERTYPUTREF, VT_EMPTY, NULL, parms,
@@ -184,6 +190,7 @@ void C_Recordset::SetRefSource(LPDISPATCH newValue)
 
 void C_Recordset::SetSource(LPCTSTR lpszNewValue)
 {
+
 	static BYTE parms[] =
 		VTS_BSTR;
 	InvokeHelper(0x3f3, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, parms,
@@ -192,6 +199,7 @@ void C_Recordset::SetSource(LPCTSTR lpszNewValue)
 
 VARIANT C_Recordset::GetSource()
 {
+
 	VARIANT result;
 	InvokeHelper(0x3f3, DISPATCH_PROPERTYGET, VT_VARIANT, (void*)&result, NULL);
 	return result;
@@ -199,6 +207,7 @@ VARIANT C_Recordset::GetSource()
 
 void C_Recordset::AddNew(const VARIANT& FieldList, const VARIANT& Values)
 {
+
 	static BYTE parms[] =
 		VTS_VARIANT VTS_VARIANT;
 	InvokeHelper(0x3f4, DISPATCH_METHOD, VT_EMPTY, NULL, parms,
@@ -207,16 +216,19 @@ void C_Recordset::AddNew(const VARIANT& FieldList, const VARIANT& Values)
 
 void C_Recordset::CancelUpdate()
 {
+
 	InvokeHelper(0x3f5, DISPATCH_METHOD, VT_EMPTY, NULL, NULL);
 }
 
 void C_Recordset::Close()
 {
+
 	InvokeHelper(0x3f6, DISPATCH_METHOD, VT_EMPTY, NULL, NULL);
 }
 
 void C_Recordset::Delete(long AffectRecords)
 {
+
 	static BYTE parms[] =
 		VTS_I4;
 	InvokeHelper(0x3f7, DISPATCH_METHOD, VT_EMPTY, NULL, parms,
@@ -225,6 +237,7 @@ void C_Recordset::Delete(long AffectRecords)
 
 VARIANT C_Recordset::GetRows(long Rows, const VARIANT& Start, const VARIANT& Fields)
 {
+
 	VARIANT result;
 	static BYTE parms[] =
 		VTS_I4 VTS_VARIANT VTS_VARIANT;
@@ -235,6 +248,7 @@ VARIANT C_Recordset::GetRows(long Rows, const VARIANT& Start, const VARIANT& Fie
 
 void C_Recordset::Move(long NumRecords, const VARIANT& Start)
 {
+
 	static BYTE parms[] =
 		VTS_I4 VTS_VARIANT;
 	InvokeHelper(0x3f9, DISPATCH_METHOD, VT_EMPTY, NULL, parms,
@@ -243,6 +257,7 @@ void C_Recordset::Move(long NumRecords, const VARIANT& Start)
 
 void C_Recordset::MoveNext()
 {
+
 	InvokeHelper(0x3fa, DISPATCH_METHOD, VT_EMPTY, NULL, NULL);
 }
 
@@ -253,6 +268,7 @@ void C_Recordset::MovePrevious()
 
 void C_Recordset::MoveFirst()
 {
+
 	InvokeHelper(0x3fc, DISPATCH_METHOD, VT_EMPTY, NULL, NULL);
 }
 
@@ -263,6 +279,7 @@ void C_Recordset::MoveLast()
 
 void C_Recordset::Open(const VARIANT& Source, const VARIANT& ActiveConnection, long CursorType, long LockType, long Options)
 {
+
 	static BYTE parms[] =
 		VTS_VARIANT VTS_VARIANT VTS_I4 VTS_I4 VTS_I4;
 	InvokeHelper(0x3fe, DISPATCH_METHOD, VT_EMPTY, NULL, parms,
@@ -271,6 +288,7 @@ void C_Recordset::Open(const VARIANT& Source, const VARIANT& ActiveConnection, l
 
 void C_Recordset::Requery(long Options)
 {
+
 	static BYTE parms[] =
 		VTS_I4;
 	InvokeHelper(0x3ff, DISPATCH_METHOD, VT_EMPTY, NULL, parms,
@@ -279,6 +297,7 @@ void C_Recordset::Requery(long Options)
 
 void C_Recordset::Update(const VARIANT& Fields, const VARIANT& Values)
 {
+	
 	static BYTE parms[] =
 		VTS_VARIANT VTS_VARIANT;
 	InvokeHelper(0x401, DISPATCH_METHOD, VT_EMPTY, NULL, parms,
@@ -287,6 +306,7 @@ void C_Recordset::Update(const VARIANT& Fields, const VARIANT& Values)
 
 long C_Recordset::GetAbsolutePage()
 {
+
 	long result;
 	InvokeHelper(0x417, DISPATCH_PROPERTYGET, VT_I4, (void*)&result, NULL);
 	return result;
@@ -294,6 +314,7 @@ long C_Recordset::GetAbsolutePage()
 
 void C_Recordset::SetAbsolutePage(long nNewValue)
 {
+
 	static BYTE parms[] =
 		VTS_I4;
 	InvokeHelper(0x417, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, parms,
@@ -302,6 +323,7 @@ void C_Recordset::SetAbsolutePage(long nNewValue)
 
 long C_Recordset::GetEditMode()
 {
+	
 	long result;
 	InvokeHelper(0x402, DISPATCH_PROPERTYGET, VT_I4, (void*)&result, NULL);
 	return result;
@@ -309,6 +331,7 @@ long C_Recordset::GetEditMode()
 
 VARIANT C_Recordset::GetFilter()
 {
+
 	VARIANT result;
 	InvokeHelper(0x406, DISPATCH_PROPERTYGET, VT_VARIANT, (void*)&result, NULL);
 	return result;
@@ -316,6 +339,7 @@ VARIANT C_Recordset::GetFilter()
 
 void C_Recordset::SetFilter(const VARIANT& newValue)
 {
+
 	static BYTE parms[] =
 		VTS_VARIANT;
 	InvokeHelper(0x406, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, parms,
@@ -324,6 +348,7 @@ void C_Recordset::SetFilter(const VARIANT& newValue)
 
 long C_Recordset::GetPageCount()
 {
+
 	long result;
 	InvokeHelper(0x41a, DISPATCH_PROPERTYGET, VT_I4, (void*)&result, NULL);
 	return result;
@@ -331,6 +356,7 @@ long C_Recordset::GetPageCount()
 
 long C_Recordset::GetPageSize()
 {
+
 	long result;
 	InvokeHelper(0x418, DISPATCH_PROPERTYGET, VT_I4, (void*)&result, NULL);
 	return result;
@@ -338,6 +364,7 @@ long C_Recordset::GetPageSize()
 
 void C_Recordset::SetPageSize(long nNewValue)
 {
+
 	static BYTE parms[] =
 		VTS_I4;
 	InvokeHelper(0x418, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, parms,
@@ -346,6 +373,7 @@ void C_Recordset::SetPageSize(long nNewValue)
 
 CString C_Recordset::GetSort()
 {
+
 	CString result;
 	InvokeHelper(0x407, DISPATCH_PROPERTYGET, VT_BSTR, (void*)&result, NULL);
 	return result;
@@ -353,6 +381,7 @@ CString C_Recordset::GetSort()
 
 void C_Recordset::SetSort(LPCTSTR lpszNewValue)
 {
+
 	static BYTE parms[] =
 		VTS_BSTR;
 	InvokeHelper(0x407, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, parms,
@@ -361,6 +390,7 @@ void C_Recordset::SetSort(LPCTSTR lpszNewValue)
 
 long C_Recordset::GetStatus()
 {
+
 	long result;
 	InvokeHelper(0x405, DISPATCH_PROPERTYGET, VT_I4, (void*)&result, NULL);
 	return result;
@@ -368,6 +398,7 @@ long C_Recordset::GetStatus()
 
 long C_Recordset::GetState()
 {
+
 	long result;
 	InvokeHelper(0x41e, DISPATCH_PROPERTYGET, VT_I4, (void*)&result, NULL);
 	return result;
@@ -375,6 +406,7 @@ long C_Recordset::GetState()
 
 void C_Recordset::UpdateBatch(long AffectRecords)
 {
+
 	static BYTE parms[] =
 		VTS_I4;
 	InvokeHelper(0x40b, DISPATCH_METHOD, VT_EMPTY, NULL, parms,
@@ -383,6 +415,7 @@ void C_Recordset::UpdateBatch(long AffectRecords)
 
 void C_Recordset::CancelBatch(long AffectRecords)
 {
+
 	static BYTE parms[] =
 		VTS_I4;
 	InvokeHelper(0x419, DISPATCH_METHOD, VT_EMPTY, NULL, parms,
@@ -391,6 +424,7 @@ void C_Recordset::CancelBatch(long AffectRecords)
 
 long C_Recordset::GetCursorLocation()
 {
+
 	long result;
 	InvokeHelper(0x41b, DISPATCH_PROPERTYGET, VT_I4, (void*)&result, NULL);
 	return result;
@@ -398,6 +432,7 @@ long C_Recordset::GetCursorLocation()
 
 void C_Recordset::SetCursorLocation(long nNewValue)
 {
+
 	static BYTE parms[] =
 		VTS_I4;
 	InvokeHelper(0x41b, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, parms,
@@ -406,6 +441,7 @@ void C_Recordset::SetCursorLocation(long nNewValue)
 
 C_Recordset C_Recordset::NextRecordset(VARIANT* RecordsAffected)
 {
+
 	LPDISPATCH pDispatch;
 	static BYTE parms[] =
 		VTS_PVARIANT;
@@ -416,6 +452,7 @@ C_Recordset C_Recordset::NextRecordset(VARIANT* RecordsAffected)
 
 BOOL C_Recordset::Supports(long CursorOptions)
 {
+
 	BOOL result;
 	static BYTE parms[] =
 		VTS_I4;
@@ -426,6 +463,7 @@ BOOL C_Recordset::Supports(long CursorOptions)
 
 long C_Recordset::GetMarshalOptions()
 {
+
 	long result;
 	InvokeHelper(0x41d, DISPATCH_PROPERTYGET, VT_I4, (void*)&result, NULL);
 	return result;
@@ -433,6 +471,7 @@ long C_Recordset::GetMarshalOptions()
 
 void C_Recordset::SetMarshalOptions(long nNewValue)
 {
+
 	static BYTE parms[] =
 		VTS_I4;
 	InvokeHelper(0x41d, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, parms,
@@ -441,6 +480,7 @@ void C_Recordset::SetMarshalOptions(long nNewValue)
 
 void C_Recordset::Find(LPCTSTR Criteria, long SkipRecords, long SearchDirection, const VARIANT& Start)
 {
+
 	static BYTE parms[] =
 		VTS_BSTR VTS_I4 VTS_I4 VTS_VARIANT;
 	InvokeHelper(0x422, DISPATCH_METHOD, VT_EMPTY, NULL, parms,
@@ -449,11 +489,13 @@ void C_Recordset::Find(LPCTSTR Criteria, long SkipRecords, long SearchDirection,
 
 void C_Recordset::Cancel()
 {
+
 	InvokeHelper(0x41f, DISPATCH_METHOD, VT_EMPTY, NULL, NULL);
 }
 
 LPUNKNOWN C_Recordset::GetDataSource()
 {
+
 	LPUNKNOWN result;
 	InvokeHelper(0x420, DISPATCH_PROPERTYGET, VT_UNKNOWN, (void*)&result, NULL);
 	return result;
@@ -461,6 +503,7 @@ LPUNKNOWN C_Recordset::GetDataSource()
 
 void C_Recordset::SetRefDataSource(LPUNKNOWN newValue)
 {
+
 	static BYTE parms[] =
 		VTS_UNKNOWN;
 	InvokeHelper(0x420, DISPATCH_PROPERTYPUTREF, VT_EMPTY, NULL, parms,
@@ -469,6 +512,7 @@ void C_Recordset::SetRefDataSource(LPUNKNOWN newValue)
 
 void C_Recordset::Save(LPCTSTR FileName, long PersistFormat)
 {
+
 	static BYTE parms[] =
 		VTS_BSTR VTS_I4;
 	InvokeHelper(0x421, DISPATCH_METHOD, VT_EMPTY, NULL, parms,
@@ -477,6 +521,7 @@ void C_Recordset::Save(LPCTSTR FileName, long PersistFormat)
 
 LPDISPATCH C_Recordset::GetActiveCommand()
 {
+
 	LPDISPATCH result;
 	InvokeHelper(0x425, DISPATCH_PROPERTYGET, VT_DISPATCH, (void*)&result, NULL);
 	return result;
@@ -484,6 +529,7 @@ LPDISPATCH C_Recordset::GetActiveCommand()
 
 void C_Recordset::SetStayInSync(BOOL bNewValue)
 {
+
 	static BYTE parms[] =
 		VTS_BOOL;
 	InvokeHelper(0x427, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, parms,
@@ -492,6 +538,7 @@ void C_Recordset::SetStayInSync(BOOL bNewValue)
 
 BOOL C_Recordset::GetStayInSync()
 {
+
 	BOOL result;
 	InvokeHelper(0x427, DISPATCH_PROPERTYGET, VT_BOOL, (void*)&result, NULL);
 	return result;
@@ -499,6 +546,7 @@ BOOL C_Recordset::GetStayInSync()
 
 CString C_Recordset::GetString(long StringFormat, long NumRows, LPCTSTR ColumnDelimeter, LPCTSTR RowDelimeter, LPCTSTR NullExpr)
 {
+
 	CString result;
 	static BYTE parms[] =
 		VTS_I4 VTS_I4 VTS_BSTR VTS_BSTR VTS_BSTR;
@@ -509,6 +557,7 @@ CString C_Recordset::GetString(long StringFormat, long NumRows, LPCTSTR ColumnDe
 
 CString C_Recordset::GetDataMember()
 {
+
 	CString result;
 	InvokeHelper(0x428, DISPATCH_PROPERTYGET, VT_BSTR, (void*)&result, NULL);
 	return result;
@@ -516,6 +565,7 @@ CString C_Recordset::GetDataMember()
 
 void C_Recordset::SetDataMember(LPCTSTR lpszNewValue)
 {
+
 	static BYTE parms[] =
 		VTS_BSTR;
 	InvokeHelper(0x428, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, parms,
@@ -524,6 +574,7 @@ void C_Recordset::SetDataMember(LPCTSTR lpszNewValue)
 
 long C_Recordset::CompareBookmarks(const VARIANT& Bookmark1, const VARIANT& Bookmark2)
 {
+
 	long result;
 	static BYTE parms[] =
 		VTS_VARIANT VTS_VARIANT;
@@ -534,6 +585,7 @@ long C_Recordset::CompareBookmarks(const VARIANT& Bookmark1, const VARIANT& Book
 
 C_Recordset C_Recordset::Clone(long LockType)
 {
+
 	LPDISPATCH pDispatch;
 	static BYTE parms[] =
 		VTS_I4;
@@ -544,6 +596,7 @@ C_Recordset C_Recordset::Clone(long LockType)
 
 void C_Recordset::Resync(long AffectRecords, long ResyncValues)
 {
+
 	static BYTE parms[] =
 		VTS_I4 VTS_I4;
 	InvokeHelper(0x400, DISPATCH_METHOD, VT_EMPTY, NULL, parms,
