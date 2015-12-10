@@ -1,26 +1,32 @@
 # Supermarket-inventory-management-system
 
-、#include "stdafx.h"
+#include "stdafx.h"
 #include "_recordset.h"
 #include "properties.h"
 #include "fields.h"
 
 CProperties C_Recordset::GetProperties()
+
 {
+
 	LPDISPATCH pDispatch;
 	InvokeHelper(0x1f4, DISPATCH_PROPERTYGET, VT_DISPATCH, (void*)&pDispatch, NULL);
 	return CProperties(pDispatch);
 }
 
 long C_Recordset::GetAbsolutePosition()
+
 {
+
 	long result;
 	InvokeHelper(0x3e8, DISPATCH_PROPERTYGET, VT_I4, (void*)&result, NULL);
 	return result;
 }
 
 void C_Recordset::SetAbsolutePosition(long nNewValue)
+
 {
+
 	static BYTE parms[] =
 		VTS_I4;
 	InvokeHelper(0x3e8, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, parms,
@@ -28,7 +34,9 @@ void C_Recordset::SetAbsolutePosition(long nNewValue)
 }
 
 void C_Recordset::SetRefActiveConnection(LPDISPATCH newValue)
+
 {
+
 	static BYTE parms[] =
 		VTS_DISPATCH;
 	InvokeHelper(0x3e9, DISPATCH_PROPERTYPUTREF, VT_EMPTY, NULL, parms,
