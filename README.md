@@ -44,7 +44,9 @@ void C_Recordset::SetRefActiveConnection(LPDISPATCH newValue)
 }
 
 void C_Recordset::SetActiveConnection(const VARIANT& newValue)
+
 {
+
 	static BYTE parms[] =
 		VTS_VARIANT;
 	InvokeHelper(0x3e9, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, parms,
@@ -52,7 +54,9 @@ void C_Recordset::SetActiveConnection(const VARIANT& newValue)
 }
 
 VARIANT C_Recordset::GetActiveConnection()
+
 {
+
 	VARIANT result;
 	InvokeHelper(0x3e9, DISPATCH_PROPERTYGET, VT_VARIANT, (void*)&result, NULL);
 	return result;
@@ -60,6 +64,7 @@ VARIANT C_Recordset::GetActiveConnection()
 
 BOOL C_Recordset::GetBof()
 {
+
 	BOOL result;
 	InvokeHelper(0x3ea, DISPATCH_PROPERTYGET, VT_BOOL, (void*)&result, NULL);
 	return result;
@@ -67,6 +72,7 @@ BOOL C_Recordset::GetBof()
 
 VARIANT C_Recordset::GetBookmark()
 {
+
 	VARIANT result;
 	InvokeHelper(0x3eb, DISPATCH_PROPERTYGET, VT_VARIANT, (void*)&result, NULL);
 	return result;
@@ -74,6 +80,7 @@ VARIANT C_Recordset::GetBookmark()
 
 void C_Recordset::SetBookmark(const VARIANT& newValue)
 {
+
 	static BYTE parms[] =
 		VTS_VARIANT;
 	InvokeHelper(0x3eb, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, parms,
@@ -82,6 +89,7 @@ void C_Recordset::SetBookmark(const VARIANT& newValue)
 
 long C_Recordset::GetCacheSize()
 {
+
 	long result;
 	InvokeHelper(0x3ec, DISPATCH_PROPERTYGET, VT_I4, (void*)&result, NULL);
 	return result;
@@ -89,6 +97,7 @@ long C_Recordset::GetCacheSize()
 
 void C_Recordset::SetCacheSize(long nNewValue)
 {
+
 	static BYTE parms[] =
 		VTS_I4;
 	InvokeHelper(0x3ec, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, parms,
@@ -97,6 +106,7 @@ void C_Recordset::SetCacheSize(long nNewValue)
 
 long C_Recordset::GetCursorType()
 {
+
 	long result;
 	InvokeHelper(0x3ed, DISPATCH_PROPERTYGET, VT_I4, (void*)&result, NULL);
 	return result;
@@ -104,6 +114,7 @@ long C_Recordset::GetCursorType()
 
 void C_Recordset::SetCursorType(long nNewValue)
 {
+
 	static BYTE parms[] =
 		VTS_I4;
 	InvokeHelper(0x3ed, DISPATCH_PROPERTYPUT, VT_EMPTY, NULL, parms,
@@ -112,6 +123,7 @@ void C_Recordset::SetCursorType(long nNewValue)
 
 BOOL C_Recordset::GetEof()
 {
+
 	BOOL result;
 	InvokeHelper(0x3ee, DISPATCH_PROPERTYGET, VT_BOOL, (void*)&result, NULL);
 	return result;
@@ -119,6 +131,7 @@ BOOL C_Recordset::GetEof()
 
 CFields C_Recordset::GetFields()
 {
+
 	LPDISPATCH pDispatch;
 	InvokeHelper(0x0, DISPATCH_PROPERTYGET, VT_DISPATCH, (void*)&pDispatch, NULL);
 	return CFields(pDispatch);
