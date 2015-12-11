@@ -594,6 +594,8 @@ C_Recordset C_Recordset::Clone(long LockType)
 	return C_Recordset(pDispatch);
 }
 
+
+
 void C_Recordset::Resync(long AffectRecords, long ResyncValues)
 {
 
@@ -602,3 +604,101 @@ void C_Recordset::Resync(long AffectRecords, long ResyncValues)
 	InvokeHelper(0x400, DISPATCH_METHOD, VT_EMPTY, NULL, parms,
 		 AffectRecords, ResyncValues);
 }
+
+
+
+#include "stdafx.h"
+#include "ADOConn.h"
+
+#ifdef _DEBUG
+#undef THIS_FILE
+static char THIS_FILE[]=__FILE__;
+#define new DEBUG_NEW
+#endif
+
+
+ADOConn::ADOConn()
+{
+
+}
+
+ADOConn::~ADOConn()
+{
+
+}
+
+void  ADOConn::OnInitADOConn()
+{
+	 
+	::CoInitialize(NULL);
+  
+	try
+	{
+		
+		m_pConnection.CreateInstance("ADODB.Connection");
+		
+		_bstr_t strConnect = "Provider=SQLNCLI.1;Password=sa;Persist Security Info=True;User ID=sa;Initial Catalog=Stock;Data Source=localhost ";
+		m_pConnection->Open(strConnect,"","",adModeUnknown);
+	}
+
+	catch(_com_error e)
+	{
+	
+		AfxMessageBox(e.Description());
+	}
+}
+
+
+_RecordsetPtr&  ADOConn::GetRecordSet(_bstr_t bstrSQL)
+{
+	try
+	{
+	
+		if(m_pConnection==NULL)
+			OnInitADOConn();
+		
+		m_pRecordset.CreateInstance(__uuidof(Recordset));
+	
+		m_pRecordset->Open(bstrSQL,m_pConnection.GetInterfacePtr(),adOpenDynamic,adLockOptimistic,adCmdText);
+	}
+	
+	catch(_com_error e)
+	{
+		
+		AfxMessageBox(e.Description());
+	}
+
+	return m_pRecordset;
+}
+
+
+BOOL ADOConn::ExecuteSQL(_bstr_t bstrSQL)
+{
+
+	try
+	{
+	
+		if(m_pConnection == NULL)
+			OnInitADOConn();
+	
+		m_pConnection->Execute(bstrSQL,NULL,adCmdText);
+		return true;
+	}
+	catch(_com_error e)
+	{
+
+		AfxMessageBox(e.Description());
+		return false;
+	}
+}
+
+void ADOConn::ExitConnect()
+{
+
+	if (m_pRecordset != NULL)
+		m_pRecordset->Close();
+	m_pConnection->Close();
+
+	::CoUninitialize();
+}
+
